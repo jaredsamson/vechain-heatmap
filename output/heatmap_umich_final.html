@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e65077a1680fa6309a41b0695f9f9629 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e65077a1680fa6309a41b0695f9f9629" ></div>
+        
+    
+                
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+<div style="
+    position: fixed;
+    top: 10px; left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+    font-family: 'Public Sans', 'Arial', sans-serif;
+    max-width: 1000px;
+    width: 95%;
+    text-align: center;
+">
+    <h1 style="margin: 0; font-size: 36px; color: #00274C; font-weight: bold;">
+        VeBetter User Data @ University of Michigan
+    </h1>
+    <p style="margin: 6px 0 0 0; font-size: 19px; color: #333;">
+        Live visualization using Folium Heatmap<br>
+        Developed by <strong>Alex Yesilyurt</strong> & <strong>Jared Samson</strong> in collaboration with <strong>Boston Consulting Group</strong>.
+    </p>
+</div>
+
+            
+</body>
+<script>
+    
+    
+            var map_e65077a1680fa6309a41b0695f9f9629 = L.map(
+                "map_e65077a1680fa6309a41b0695f9f9629",
+                {
+                    center: [42.279, -83.7382],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_39937eb641d4771f84e6c95c67697cd4 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_39937eb641d4771f84e6c95c67697cd4.addTo(map_e65077a1680fa6309a41b0695f9f9629);
+        
+    
+            var heat_map_b8c304583ddae7fb89f4d64b90ea6620 = L.heatLayer(
+                [[42.277, -83.7382], [42.2803, -83.7463], [42.2803, -83.7382], [42.2803, -83.7382], [42.277, -83.7382], [42.2803, -83.7382], [42.277, -83.7382]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 30,
+  "blur": 15,
+}
+            );
+        
+    
+            heat_map_b8c304583ddae7fb89f4d64b90ea6620.addTo(map_e65077a1680fa6309a41b0695f9f9629);
+        
+    
+            var marker_8a47af4cfbc1755f3e2da9a23b1c64c2 = L.marker(
+                [42.277, -83.7382],
+                {
+}
+            ).addTo(map_e65077a1680fa6309a41b0695f9f9629);
+        
+    
+            var icon_4821f0c54b60c55e43f7f021ad85fc57 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8a83179866726a10069d492ed2cdace5 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_e5b065760bce78ed547ea64f7326e86e = $(`<div id="html_e5b065760bce78ed547ea64f7326e86e" style="width: 100.0%; height: 100.0%;">     <div style="padding: 5px; font-family: 'Public Sans', 'Arial', sans-serif;">         <div style="font-size: 16px; font-weight: bold; margin-bottom: 3px;">📍 Diag</div>         <div><strong>Total Entries:</strong> 3</div>     </div>          <div style="max-height: 300px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; font-family: 'Public Sans', 'Arial', sans-serif;">         <table border="1" class="dataframe popup-table">   <thead>     <tr style="text-align: right;">       <th>Timestamp</th>       <th>Are you a...</th>       <th>How old are you?</th>       <th>Where did you scan the QR code?</th>       <th>How familiar are you with blockchain-based sustainability initiatives?</th>       <th>Have you participated in other sustainability initiatives on campus before?</th>     </tr>   </thead>   <tbody>     <tr>       <td>3/2/2025 20:01:28</td>       <td>Student</td>       <td>18-19</td>       <td>Diag</td>       <td>Somewhat familiar</td>       <td>No</td>     </tr>     <tr>       <td>3/26/2025 21:18:03</td>       <td>Student</td>       <td>Below 18</td>       <td>Diag</td>       <td>Somewhat familiar</td>       <td>No</td>     </tr>     <tr>       <td>3/26/2025 21:18:19</td>       <td>Student</td>       <td>19-21</td>       <td>Diag</td>       <td>Somewhat familiar</td>       <td>Not sure</td>     </tr>   </tbody> </table>     </div>     </div>`)[0];
+                popup_8a83179866726a10069d492ed2cdace5.setContent(html_e5b065760bce78ed547ea64f7326e86e);
+            
+        
+
+        marker_8a47af4cfbc1755f3e2da9a23b1c64c2.bindPopup(popup_8a83179866726a10069d492ed2cdace5)
+        ;
+
+        
+    
+    
+            marker_8a47af4cfbc1755f3e2da9a23b1c64c2.bindTooltip(
+                `<div>
+                     3 entries here
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8a47af4cfbc1755f3e2da9a23b1c64c2.setIcon(icon_4821f0c54b60c55e43f7f021ad85fc57);
+            
+    
+            var marker_6de2cb7ae166257c7578c257bfc5200a = L.marker(
+                [42.2803, -83.7382],
+                {
+}
+            ).addTo(map_e65077a1680fa6309a41b0695f9f9629);
+        
+    
+            var icon_2f25ec36ac5bab0edfeefc2ef614df1e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4388e47e212f24d307dd8541d0dbe2fe = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_104adfc4898b0be1afd68519dd19ffc1 = $(`<div id="html_104adfc4898b0be1afd68519dd19ffc1" style="width: 100.0%; height: 100.0%;">     <div style="padding: 5px; font-family: 'Public Sans', 'Arial', sans-serif;">         <div style="font-size: 16px; font-weight: bold; margin-bottom: 3px;">📍 East Hall</div>         <div><strong>Total Entries:</strong> 2</div>     </div>          <div style="max-height: 300px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; font-family: 'Public Sans', 'Arial', sans-serif;">         <table border="1" class="dataframe popup-table">   <thead>     <tr style="text-align: right;">       <th>Timestamp</th>       <th>Are you a...</th>       <th>How old are you?</th>       <th>Where did you scan the QR code?</th>       <th>How familiar are you with blockchain-based sustainability initiatives?</th>       <th>Have you participated in other sustainability initiatives on campus before?</th>     </tr>   </thead>   <tbody>     <tr>       <td>3/2/2025 20:01:56</td>       <td>Professor</td>       <td>21+</td>       <td>East Hall</td>       <td>Very familiar</td>       <td>Yes</td>     </tr>     <tr>       <td>3/26/2025 21:18:12</td>       <td>Student</td>       <td>21+</td>       <td>East Hall</td>       <td>Very familiar</td>       <td>Not sure</td>     </tr>   </tbody> </table>     </div>     </div>`)[0];
+                popup_4388e47e212f24d307dd8541d0dbe2fe.setContent(html_104adfc4898b0be1afd68519dd19ffc1);
+            
+        
+
+        marker_6de2cb7ae166257c7578c257bfc5200a.bindPopup(popup_4388e47e212f24d307dd8541d0dbe2fe)
+        ;
+
+        
+    
+    
+            marker_6de2cb7ae166257c7578c257bfc5200a.bindTooltip(
+                `<div>
+                     2 entries here
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6de2cb7ae166257c7578c257bfc5200a.setIcon(icon_2f25ec36ac5bab0edfeefc2ef614df1e);
+            
+    
+            var marker_f4c85ea4f35bcf78561bd0fad4bd3351 = L.marker(
+                [42.2803, -83.7463],
+                {
+}
+            ).addTo(map_e65077a1680fa6309a41b0695f9f9629);
+        
+    
+            var icon_4c142fc5833cc566d7d6e9323d3697bb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_55f0553b09ef8c097d3c1c11ad375b1a = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_3f99d72b3beaf24fe5befa9a7086c7c4 = $(`<div id="html_3f99d72b3beaf24fe5befa9a7086c7c4" style="width: 100.0%; height: 100.0%;">     <div style="padding: 5px; font-family: 'Public Sans', 'Arial', sans-serif;">         <div style="font-size: 16px; font-weight: bold; margin-bottom: 3px;">📍 M36 Coffee Roasters</div>         <div><strong>Total Entries:</strong> 1</div>     </div>          <div style="max-height: 300px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; font-family: 'Public Sans', 'Arial', sans-serif;">         <table border="1" class="dataframe popup-table">   <thead>     <tr style="text-align: right;">       <th>Timestamp</th>       <th>Are you a...</th>       <th>How old are you?</th>       <th>Where did you scan the QR code?</th>       <th>How familiar are you with blockchain-based sustainability initiatives?</th>       <th>Have you participated in other sustainability initiatives on campus before?</th>     </tr>   </thead>   <tbody>     <tr>       <td>3/2/2025 20:01:44</td>       <td>Visitor</td>       <td>19-21</td>       <td>M36 Coffee Roasters</td>       <td>Never heard of it</td>       <td>Not sure</td>     </tr>   </tbody> </table>     </div>     </div>`)[0];
+                popup_55f0553b09ef8c097d3c1c11ad375b1a.setContent(html_3f99d72b3beaf24fe5befa9a7086c7c4);
+            
+        
+
+        marker_f4c85ea4f35bcf78561bd0fad4bd3351.bindPopup(popup_55f0553b09ef8c097d3c1c11ad375b1a)
+        ;
+
+        
+    
+    
+            marker_f4c85ea4f35bcf78561bd0fad4bd3351.bindTooltip(
+                `<div>
+                     1 entry here
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f4c85ea4f35bcf78561bd0fad4bd3351.setIcon(icon_4c142fc5833cc566d7d6e9323d3697bb);
+            
+    
+            var marker_ae04ad3cbb709bb9a68adf7dfe687436 = L.marker(
+                [42.2803, -83.7382],
+                {
+}
+            ).addTo(map_e65077a1680fa6309a41b0695f9f9629);
+        
+    
+            var icon_6ec0eee38d08bac351d4c7b79d0eab8d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e8ba51a64c68172877030ae550b2e211 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_36821296630d9ef2b1aa2d01649d441a = $(`<div id="html_36821296630d9ef2b1aa2d01649d441a" style="width: 100.0%; height: 100.0%;">     <div style="padding: 5px; font-family: 'Public Sans', 'Arial', sans-serif;">         <div style="font-size: 16px; font-weight: bold; margin-bottom: 3px;">📍 West Quadrangle</div>         <div><strong>Total Entries:</strong> 1</div>     </div>          <div style="max-height: 300px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; font-family: 'Public Sans', 'Arial', sans-serif;">         <table border="1" class="dataframe popup-table">   <thead>     <tr style="text-align: right;">       <th>Timestamp</th>       <th>Are you a...</th>       <th>How old are you?</th>       <th>Where did you scan the QR code?</th>       <th>How familiar are you with blockchain-based sustainability initiatives?</th>       <th>Have you participated in other sustainability initiatives on campus before?</th>     </tr>   </thead>   <tbody>     <tr>       <td>3/2/2025 20:02:40</td>       <td>Student</td>       <td>Below 18</td>       <td>West Quadrangle</td>       <td>Never heard of it</td>       <td>No</td>     </tr>   </tbody> </table>     </div>     </div>`)[0];
+                popup_e8ba51a64c68172877030ae550b2e211.setContent(html_36821296630d9ef2b1aa2d01649d441a);
+            
+        
+
+        marker_ae04ad3cbb709bb9a68adf7dfe687436.bindPopup(popup_e8ba51a64c68172877030ae550b2e211)
+        ;
+
+        
+    
+    
+            marker_ae04ad3cbb709bb9a68adf7dfe687436.bindTooltip(
+                `<div>
+                     1 entry here
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ae04ad3cbb709bb9a68adf7dfe687436.setIcon(icon_6ec0eee38d08bac351d4c7b79d0eab8d);
+            
+</script>
+</html>
