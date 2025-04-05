@@ -1,6 +1,7 @@
 import pandas as pd
 import folium
 from folium.plugins import HeatMap
+from folium.plugins import MiniMap
 from branca.element import MacroElement
 from jinja2 import Template
 import os
@@ -28,7 +29,9 @@ m = folium.Map(location=[adjusted_lat, lon], zoom_start=16)
 
 # Heatmap with increased radius (spread)
 heat_data = df[["latitude", "longitude"]].dropna().values.tolist()
-HeatMap(heat_data, radius=30).add_to(m)  # 6x default (default is 10)
+HeatMap(heat_data, 
+        radius=30
+        ).add_to(m)  # 6x default (default is 10)
 
 # Title with UMich-style font and wider box
 title_html = """
@@ -57,7 +60,29 @@ title_html = """
 </div>
 """
 
-class MapTitle(MacroElement):
+legend_html = """
+<div style="
+    position: fixed;
+    bottom: 30px; left: 30px; 
+    z-index: 9999;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    font-family: 'Public Sans', sans-serif;
+">
+    <div style="font-weight: bold; margin-bottom: 5px;">Heatmap Intensity</div>
+    <div style="display: flex; align-items: center;">
+        <div style="width: 120px; height: 12px;
+                    background: linear-gradient(to right, blue, lime, yellow, orange, red); 
+                    margin-right: 10px;">
+        </div>
+        <div style="font-size: 12px;">Low → High</div>
+    </div>
+</div>
+"""
+
+class AddChild(MacroElement):
     def __init__(self, html):
         super().__init__()
         self._template = Template(f"""
@@ -66,7 +91,8 @@ class MapTitle(MacroElement):
             {{% endmacro %}}
         """)
 
-m.get_root().add_child(MapTitle(title_html))
+m.get_root().add_child(AddChild(title_html))
+m.get_root().add_child(AddChild(legend_html))
 
 # Popups
 popup_df = df.drop(columns=["latitude", "longitude"])
@@ -98,6 +124,9 @@ for location, group in popup_df.groupby("Where did you scan the QR code?"):
         tooltip=f"{len(group)} entr{'y' if len(group)==1 else 'ies'} here",
         icon=folium.Icon(color='blue', icon='info-sign')
     ).add_to(m)
+
+# MiniMap
+MiniMap(toggle_display=True).add_to(m)
 
 # Save
 os.makedirs("output", exist_ok=True)
