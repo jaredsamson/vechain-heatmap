@@ -1,6 +1,5 @@
 {
-    "build": {
-      "builder": "staticfile"
-    }
+  "build": {
+    "builder": "staticfile"
   }
-  
+}
