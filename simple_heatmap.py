@@ -122,17 +122,18 @@ title_html = """
         </p>
     </div>
 
-    <!-- Right: VeChain + BCG Logos (working PNGs) -->
+    <!-- Right: Working Logos -->
     <div style="display: flex; align-items: center; gap: 14px; margin-left: 20px;">
         <a href="https://www.vechain.org/" target="_blank" title="VeChain">
-            <img src="https://i.imgur.com/oCMw0qv.png" alt="VeChain Logo" style="height: 32px;" />
+            <img src="https://cdn0.iconfinder.com/data/icons/blockchain-classic/256/VeChain-1024.png" alt="VeChain Logo" style="height: 32px;" />
         </a>
         <a href="https://www.bcg.com/" target="_blank" title="Boston Consulting Group">
-            <img src="https://i.imgur.com/2VWSZ2V.png" alt="BCG Logo" style="height: 32px;" />
+            <img src="https://logodix.com/logo/1185315.png" alt="BCG Logo" style="height: 32px;" />
         </a>
     </div>
 </div>
 """
+
 
 
 
