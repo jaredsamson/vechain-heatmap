@@ -105,7 +105,7 @@ title_html = """
     justify-content: space-between;
 ">
     <!-- Left: Stylized M in Maize -->
-    <div style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 800; color: #FFCB05; margin-right: 20px;">
+    <div style="font-family: 'Montserrat', sans-serif; font-size: 50px; font-weight: 800; color: #FFCB05; margin-right: 20px;">
         M
     </div>
 
@@ -123,14 +123,19 @@ title_html = """
     </div>
 
     <!-- Right: VeChain + BCG Logos -->
-    <div style="display: flex; align-items: center; gap: 12px; margin-left: 20px;">
-        <img src="https://seeklogo.com/images/V/vechain-logo-D573142B13-seeklogo.com.png" 
-             alt="VeChain Logo" style="height: 28px;" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Boston_Consulting_Group_logo.svg/2560px-Boston_Consulting_Group_logo.svg.png" 
-             alt="BCG Logo" style="height: 28px;" />
+    <div style="display: flex; align-items: center; gap: 14px; margin-left: 20px;">
+        <a href="https://www.vechain.org/" target="_blank" title="VeChain">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Vechain_Logo.png" 
+                 alt="VeChain" style="height: 32px;" />
+        </a>
+        <a href="https://www.bcg.com/" target="_blank" title="Boston Consulting Group">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Boston_Consulting_Group_logo.svg/2560px-Boston_Consulting_Group_logo.svg.png" 
+                 alt="BCG" style="height: 32px;" />
+        </a>
     </div>
 </div>
 """
+
 
 
 
