@@ -138,7 +138,7 @@ title_html = """
 legend_html = """
 <div style="
     position: fixed;
-    bottom: 30px; left: 30px; 
+    bottom: 70px; left: 30px; 
     z-index: 9999;
     background-color: white;
     padding: 10px 15px;
