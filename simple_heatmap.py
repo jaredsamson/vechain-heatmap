@@ -10,12 +10,28 @@ df = pd.read_csv('https://docs.google.com/spreadsheets/d/1xY3zXaY6WSskTJZ7080enB
 
 # Location coordinates
 locations = {
-    "Diag": [42.2770, -83.7382],
-    "M36 Coffee Roasters": [42.2803, -83.7463],
-    "East Hall": [42.2803, -83.7382],
+    "Diag": [42.2765, -83.7382],
+    "Mason Hall": [42.2766, -83.7399],
+    "Hatcher Graduate Library": [42.2757, -83.7388],
     "Shapiro Undergraduate Library": [42.2753, -83.7340],
-    "West Quadrangle": [42.2803, -83.7382],
+    "Michigan Union": [42.2749, -83.7401],
+    "Angell Hall": [42.2769, -83.7374],
+    "West Quadrangle": [42.2787, -83.7425],
+    "East Hall": [42.2803, -83.7355],
+    "LSA Building": [42.2755, -83.7378],
+    "Ross School of Business": [42.2741, -83.7364],
+    "North Quad": [42.2791, -83.7358],
+    "M36 Coffee Roasters": [42.2803, -83.7463],
+    "Chemistry Building": [42.2758, -83.7356],
+    "School of Social Work": [42.2745, -83.7350],
+    "Hill Auditorium": [42.2800, -83.7380],
+    "Law Library": [42.2738, -83.7393],
+    "Central Campus Transit Center": [42.2752, -83.7353],
+    "Central Campus Classroom Building": [42.2747, -83.7343],
+    "Mosher-Jordan Hall": [42.2764, -83.7305],
+    "Biological Sciences Building": [42.2781, -83.7384],
 }
+
 
 df["latitude"] = df["Where did you scan the QR code?"].map(lambda loc: locations.get(loc, (None, None))[0])
 df["longitude"] = df["Where did you scan the QR code?"].map(lambda loc: locations.get(loc, (None, None))[1])
