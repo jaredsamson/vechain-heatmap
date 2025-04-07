@@ -106,7 +106,7 @@ title_html = """
 
     <!-- Left: VeChain Logo -->
     <a href="https://www.vechain.org/" target="_blank" title="VeChain">
-        <img src="https://cdn0.iconfinder.com/data/icons/blockchain-classic/256/VeChain-1024.png" alt="VeChain Logo" style="height: 55px;">
+        <img src="https://cdn0.iconfinder.com/data/icons/blockchain-classic/256/VeChain-1024.png" alt="VeChain Logo" style="height: 65px;">
     </a>
 
     <!-- Center: Title and Description -->
@@ -124,7 +124,7 @@ title_html = """
 
     <!-- Right: BCG Logo -->
     <a href="https://www.bcg.com/" target="_blank" title="Boston Consulting Group">
-        <img src="https://logodix.com/logo/1185315.png" alt="BCG Logo" style="height: 55px;">
+        <img src="https://logodix.com/logo/1185315.png" alt="BCG Logo" style="height: 70px;">
     </a>
 </div>
 """
