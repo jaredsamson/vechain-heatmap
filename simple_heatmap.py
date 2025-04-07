@@ -34,6 +34,16 @@ locations = {
     "East Quadrangle": [42.273621, -83.734863],
     "School of Kinesiology": [42.276367, -83.741882],  # Kraus Building
     "South Quadrangle": [42.273281, -83.741264],
+    "Pierpont Commons": [42.292473, -83.716690],
+    "Duderstadt Center": [42.292141, -83.715233],
+    "North Campus Recreation Building (NCRB)": [42.291588, -83.713600],
+    "GG Brown Laboratory": [42.292526, -83.710793],
+    "Francois-Xavier Bagnoud (FXB) Building": [42.293434, -83.711227],
+    "Beyster Building (CSE)": [42.292698, -83.712914],
+    "Bob and Betty Beyster Building": [42.293190, -83.713020],
+    "Gerald R. Ford Robotics Building": [42.296223, -83.710457],
+    "Stamps School of Art & Design": [42.293674, -83.716011],
+    "Earl V. Moore Music Building": [42.292355, -83.717819],
 }
 
 
@@ -65,32 +75,44 @@ HeatMap(
 }                # So it still works when zoomed in
 ).add_to(m)
 
-# Title with UMich-style font and wider box
+
+# We need to implement layers for greencart, mugshot, cleanify. 
+# Should be simple but we need to update csv file by adding a column for which initiative is this for
+
+
+
+
 title_html = """
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
 <div style="
     position: fixed;
-    top: 10px; left: 50%;
+    top: 20px;
+    left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 15px 25px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    background: linear-gradient(to right, #ffffff, #f7f9fc);
+    padding: 20px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    font-family: 'Public Sans', sans-serif;
     z-index: 9999;
-    font-family: 'Public Sans', 'Arial', sans-serif;
-    max-width: 1000px;
-    width: 95%;
     text-align: center;
+    max-width: 800px;
+    width: 95%;
+    border: 1px solid #ddd;
 ">
-    <h1 style="margin: 0; font-size: 36px; color: #00274C; font-weight: bold;">
-        VeBetter User Data @ University of Michigan
+    <h1 style="margin: 0; font-size: 32px; color: #00274C; font-weight: 700;">
+        VeBetter @ University of Michigan
     </h1>
-    <p style="margin: 6px 0 0 0; font-size: 19px; color: #333;">
-        Live visualization using Folium Heatmap<br>
-        Developed by <strong>Alex Yesilyurt</strong> & <strong>Jared Samson</strong> in collaboration with <strong>Boston Consulting Group</strong>.
+    <p style="margin: 5px 0 0; font-size: 18px; color: #444;">
+        Live sustainability engagement tracker powered by <strong>Folium</strong>
+    </p>
+    <p style="margin: 4px 0 0; font-size: 16px; color: #666;">
+        Developed by <strong>Alex Yesilyurt</strong> & <strong>Jared Samson</strong>  
+        in collaboration with <strong style="color: #0066cc;">Boston Consulting Group</strong>
     </p>
 </div>
 """
+
 
 legend_html = """
 <div style="
