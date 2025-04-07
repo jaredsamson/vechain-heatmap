@@ -117,9 +117,7 @@ title_html = """
         <p style="margin: 8px 0 0; font-size: 17px; color: #444;">
             Visualizing sustainable action with <strong>VeChain</strong> & <strong>BCG</strong> — powered by <strong>Folium</strong>
         </p>
-        <p style="margin: 6px 0 0; font-size: 16px; color: #555;">
-            Developed by <strong>Alex Yesilyurt</strong> & <strong>Jared Samson</strong>
-        </p>
+        
     </div>
 
     <!-- Right: BCG Logo -->
@@ -159,6 +157,25 @@ legend_html = """
 </div>
 """
 
+developer_credit_html = """
+<div style="
+    position: fixed;
+    bottom: 10px;
+    left: 30px;
+    z-index: 9999;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 13px;
+    color: #555;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+">
+    Developed by <strong>Alex Yesilyurt</strong> & <strong>Jared Samson</strong>
+</div>
+"""
+
+
 class AddChild(MacroElement):
     def __init__(self, html):
         super().__init__()
@@ -170,6 +187,7 @@ class AddChild(MacroElement):
 
 m.get_root().add_child(AddChild(title_html))
 m.get_root().add_child(AddChild(legend_html))
+m.get_root().add_child(AddChild(developer_credit_html))
 
 # Popups
 popup_df = df.drop(columns=["latitude", "longitude"])
