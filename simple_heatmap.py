@@ -84,34 +84,55 @@ HeatMap(
 
 title_html = """
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
 <div style="
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(to right, #ffffff, #f7f9fc);
-    padding: 20px 40px;
+    padding: 20px 30px;
     border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     font-family: 'Public Sans', sans-serif;
     z-index: 9999;
     text-align: center;
-    max-width: 800px;
+    max-width: 960px;
     width: 95%;
     border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 ">
-    <h1 style="margin: 0; font-size: 32px; color: #00274C; font-weight: 700;">
-        VeBetter @ University of Michigan
-    </h1>
-    <p style="margin: 5px 0 0; font-size: 18px; color: #444;">
-        Live sustainability engagement tracker powered by <strong>Folium</strong>
-    </p>
-    <p style="margin: 4px 0 0; font-size: 16px; color: #666;">
-        Developed by <strong>Alex Yesilyurt</strong> & <strong>Jared Samson</strong>  
-        in collaboration with <strong style="color: #0066cc;">Boston Consulting Group</strong>
-    </p>
+    <!-- Left: Stylized M in Maize -->
+    <div style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 800; color: #FFCB05; margin-right: 20px;">
+        M
+    </div>
+
+    <!-- Center: Text Block -->
+    <div style="flex: 1; text-align: center;">
+        <h1 style="margin: 0; font-size: 26px; color: #00274C; font-weight: 700;">
+            VeBetter Engagement @ University of Michigan
+        </h1>
+        <p style="margin: 5px 0 0; font-size: 15.5px; color: #444;">
+            Visualizing sustainable action with <strong>VeChain</strong> & <strong>BCG</strong> — powered by <strong>Folium</strong>
+        </p>
+        <p style="margin: 4px 0 0; font-size: 15px; color: #666;">
+            Developed by <strong>Alex Yesilyurt</strong> & <strong>Jared Samson</strong>
+        </p>
+    </div>
+
+    <!-- Right: VeChain + BCG Logos -->
+    <div style="display: flex; align-items: center; gap: 12px; margin-left: 20px;">
+        <img src="https://seeklogo.com/images/V/vechain-logo-D573142B13-seeklogo.com.png" 
+             alt="VeChain Logo" style="height: 28px;" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Boston_Consulting_Group_logo.svg/2560px-Boston_Consulting_Group_logo.svg.png" 
+             alt="BCG Logo" style="height: 28px;" />
+    </div>
 </div>
 """
+
+
 
 
 legend_html = """
