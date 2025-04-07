@@ -84,20 +84,19 @@ HeatMap(
 
 title_html = """
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
 <div style="
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(to right, #ffffff, #f7f9fc);
-    padding: 28px 35px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 28px 40px;
     border-radius: 18px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     font-family: 'Public Sans', sans-serif;
     z-index: 9999;
     text-align: center;
-    max-width: 1100px;
+    max-width: 1150px;
     width: 95%;
     border: 1px solid #ddd;
     display: flex;
@@ -105,14 +104,14 @@ title_html = """
     justify-content: space-between;
 ">
 
-    <!-- Left: Stylized M -->
-    <div style="font-family: 'Montserrat', sans-serif; font-size: 60px; font-weight: 800; color: #FFCB05; margin-right: 30px;">
-        M
-    </div>
+    <!-- Left: VeChain Logo -->
+    <a href="https://www.vechain.org/" target="_blank" title="VeChain">
+        <img src="https://cdn0.iconfinder.com/data/icons/blockchain-classic/256/VeChain-1024.png" alt="VeChain Logo" style="height: 55px;">
+    </a>
 
-    <!-- Center: Text Block -->
+    <!-- Center: Title and Description -->
     <div style="flex: 1; text-align: center;">
-        <h1 style="margin: 0; font-size: 30px; color: #00274C; font-weight: 700;">
+        <h1 style="margin: 0; font-size: 30px; color: #00274C; font-weight: bold;">
             VeBetter Engagement @ University of Michigan
         </h1>
         <p style="margin: 8px 0 0; font-size: 17px; color: #444;">
@@ -123,17 +122,13 @@ title_html = """
         </p>
     </div>
 
-    <!-- Right: Logos -->
-    <div style="display: flex; align-items: center; gap: 16px; margin-left: 30px;">
-        <a href="https://www.vechain.org/" target="_blank" title="VeChain">
-            <img src="https://cdn0.iconfinder.com/data/icons/blockchain-classic/256/VeChain-1024.png" alt="VeChain Logo" style="height: 40px;" />
-        </a>
-        <a href="https://www.bcg.com/" target="_blank" title="Boston Consulting Group">
-            <img src="https://logodix.com/logo/1185315.png" alt="BCG Logo" style="height: 40px;" />
-        </a>
-    </div>
+    <!-- Right: BCG Logo -->
+    <a href="https://www.bcg.com/" target="_blank" title="Boston Consulting Group">
+        <img src="https://logodix.com/logo/1185315.png" alt="BCG Logo" style="height: 55px;">
+    </a>
 </div>
 """
+
 
 
 
