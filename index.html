@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e72be96dd3731a2f090865d5f3084d56 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e72be96dd3731a2f090865d5f3084d56" ></div>
+        
+    
+                
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+<div style="
+    position: fixed;
+    top: 10px; left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+    font-family: 'Public Sans', 'Arial', sans-serif;
+    max-width: 1000px;
+    width: 95%;
+    text-align: center;
+">
+    <h1 style="margin: 0; font-size: 36px; color: #00274C; font-weight: bold;">
+        VeBetter User Data @ University of Michigan
+    </h1>
+    <p style="margin: 6px 0 0 0; font-size: 19px; color: #333;">
+        Live visualization using Folium Heatmap<br>
+        Developed by <strong>Alex Yesilyurt</strong> & <strong>Jared Samson</strong> in collaboration with <strong>Boston Consulting Group</strong>.
+    </p>
+</div>
+
+            
+    
+                
+<div style="
+    position: fixed;
+    bottom: 30px; left: 30px; 
+    z-index: 9999;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    font-family: 'Public Sans', sans-serif;
+">
+    <div style="font-weight: bold; margin-bottom: 5px;">Heatmap Intensity</div>
+    <div style="display: flex; align-items: center;">
+        <div style="width: 120px; height: 12px;
+                    background: linear-gradient(to right, blue, lime, yellow, orange, red); 
+                    margin-right: 10px;">
+        </div>
+        <div style="font-size: 12px;">Low → High</div>
+    </div>
+</div>
+
+            
+</body>
+<script>
+    
+    
+            var map_e72be96dd3731a2f090865d5f3084d56 = L.map(
+                "map_e72be96dd3731a2f090865d5f3084d56",
+                {
+                    center: [42.279, -83.7382],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f9e61df80206ebc064bad1fc23a2a327 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f9e61df80206ebc064bad1fc23a2a327.addTo(map_e72be96dd3731a2f090865d5f3084d56);
+        
+    
+            var heat_map_b361598269c32db84ec50296254e8e8b = L.heatLayer(
+                [[42.277, -83.7382], [42.2803, -83.7463], [42.2803, -83.7382], [42.2803, -83.7382], [42.277, -83.7382], [42.2803, -83.7382], [42.277, -83.7382]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 18,
+  "radius": 30,
+  "blur": 15,
+}
+            );
+        
+    
+            heat_map_b361598269c32db84ec50296254e8e8b.addTo(map_e72be96dd3731a2f090865d5f3084d56);
+        
+    
+            var marker_e11a8ad90190f7372787700c578c5c62 = L.marker(
+                [42.277, -83.7382],
+                {
+}
+            ).addTo(map_e72be96dd3731a2f090865d5f3084d56);
+        
+    
+            var icon_b429bd1a531b57a5fab9b526dc4f24b1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ff79c36735c08a5e579f35ba2b23b408 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_73c0d512519115de8233431901a3032b = $(`<div id="html_73c0d512519115de8233431901a3032b" style="width: 100.0%; height: 100.0%;">     <div style="padding: 5px; font-family: 'Public Sans', 'Arial', sans-serif;">         <div style="font-size: 16px; font-weight: bold; margin-bottom: 3px;">📍 Diag</div>         <div><strong>Total Entries:</strong> 3</div>     </div>          <div style="max-height: 300px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; font-family: 'Public Sans', 'Arial', sans-serif;">         <table border="1" class="dataframe popup-table">   <thead>     <tr style="text-align: right;">       <th>Timestamp</th>       <th>Are you a...</th>       <th>How old are you?</th>       <th>Where did you scan the QR code?</th>       <th>How familiar are you with blockchain-based sustainability initiatives?</th>       <th>Have you participated in other sustainability initiatives on campus before?</th>     </tr>   </thead>   <tbody>     <tr>       <td>3/2/2025 20:01:28</td>       <td>Student</td>       <td>18-19</td>       <td>Diag</td>       <td>Somewhat familiar</td>       <td>No</td>     </tr>     <tr>       <td>3/26/2025 21:18:03</td>       <td>Student</td>       <td>Below 18</td>       <td>Diag</td>       <td>Somewhat familiar</td>       <td>No</td>     </tr>     <tr>       <td>3/26/2025 21:18:19</td>       <td>Student</td>       <td>19-21</td>       <td>Diag</td>       <td>Somewhat familiar</td>       <td>Not sure</td>     </tr>   </tbody> </table>     </div>     </div>`)[0];
+                popup_ff79c36735c08a5e579f35ba2b23b408.setContent(html_73c0d512519115de8233431901a3032b);
+            
+        
+
+        marker_e11a8ad90190f7372787700c578c5c62.bindPopup(popup_ff79c36735c08a5e579f35ba2b23b408)
+        ;
+
+        
+    
+    
+            marker_e11a8ad90190f7372787700c578c5c62.bindTooltip(
+                `<div>
+                     3 entries here
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e11a8ad90190f7372787700c578c5c62.setIcon(icon_b429bd1a531b57a5fab9b526dc4f24b1);
+            
+    
+            var marker_81cd49f3e6ce3c0a415bcab49697b105 = L.marker(
+                [42.2803, -83.7382],
+                {
+}
+            ).addTo(map_e72be96dd3731a2f090865d5f3084d56);
+        
+    
+            var icon_4bfd19fe736b224cee7ad179b5dd91c3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6ce5d82022790488f05c70bfc28d8916 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_141a0f29ccc1000fa43fb6e4ebfdf341 = $(`<div id="html_141a0f29ccc1000fa43fb6e4ebfdf341" style="width: 100.0%; height: 100.0%;">     <div style="padding: 5px; font-family: 'Public Sans', 'Arial', sans-serif;">         <div style="font-size: 16px; font-weight: bold; margin-bottom: 3px;">📍 East Hall</div>         <div><strong>Total Entries:</strong> 2</div>     </div>          <div style="max-height: 300px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; font-family: 'Public Sans', 'Arial', sans-serif;">         <table border="1" class="dataframe popup-table">   <thead>     <tr style="text-align: right;">       <th>Timestamp</th>       <th>Are you a...</th>       <th>How old are you?</th>       <th>Where did you scan the QR code?</th>       <th>How familiar are you with blockchain-based sustainability initiatives?</th>       <th>Have you participated in other sustainability initiatives on campus before?</th>     </tr>   </thead>   <tbody>     <tr>       <td>3/2/2025 20:01:56</td>       <td>Professor</td>       <td>21+</td>       <td>East Hall</td>       <td>Very familiar</td>       <td>Yes</td>     </tr>     <tr>       <td>3/26/2025 21:18:12</td>       <td>Student</td>       <td>21+</td>       <td>East Hall</td>       <td>Very familiar</td>       <td>Not sure</td>     </tr>   </tbody> </table>     </div>     </div>`)[0];
+                popup_6ce5d82022790488f05c70bfc28d8916.setContent(html_141a0f29ccc1000fa43fb6e4ebfdf341);
+            
+        
+
+        marker_81cd49f3e6ce3c0a415bcab49697b105.bindPopup(popup_6ce5d82022790488f05c70bfc28d8916)
+        ;
+
+        
+    
+    
+            marker_81cd49f3e6ce3c0a415bcab49697b105.bindTooltip(
+                `<div>
+                     2 entries here
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_81cd49f3e6ce3c0a415bcab49697b105.setIcon(icon_4bfd19fe736b224cee7ad179b5dd91c3);
+            
+    
+            var marker_61d32606912644a85a9c02f24221fc01 = L.marker(
+                [42.2803, -83.7463],
+                {
+}
+            ).addTo(map_e72be96dd3731a2f090865d5f3084d56);
+        
+    
+            var icon_26772c87a48672dbe63d6ad5482d4a02 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4528b1e5ee967227dae4ef3a62f87106 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_f46275da8fa67a31d1e4b813460a04d7 = $(`<div id="html_f46275da8fa67a31d1e4b813460a04d7" style="width: 100.0%; height: 100.0%;">     <div style="padding: 5px; font-family: 'Public Sans', 'Arial', sans-serif;">         <div style="font-size: 16px; font-weight: bold; margin-bottom: 3px;">📍 M36 Coffee Roasters</div>         <div><strong>Total Entries:</strong> 1</div>     </div>          <div style="max-height: 300px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; font-family: 'Public Sans', 'Arial', sans-serif;">         <table border="1" class="dataframe popup-table">   <thead>     <tr style="text-align: right;">       <th>Timestamp</th>       <th>Are you a...</th>       <th>How old are you?</th>       <th>Where did you scan the QR code?</th>       <th>How familiar are you with blockchain-based sustainability initiatives?</th>       <th>Have you participated in other sustainability initiatives on campus before?</th>     </tr>   </thead>   <tbody>     <tr>       <td>3/2/2025 20:01:44</td>       <td>Visitor</td>       <td>19-21</td>       <td>M36 Coffee Roasters</td>       <td>Never heard of it</td>       <td>Not sure</td>     </tr>   </tbody> </table>     </div>     </div>`)[0];
+                popup_4528b1e5ee967227dae4ef3a62f87106.setContent(html_f46275da8fa67a31d1e4b813460a04d7);
+            
+        
+
+        marker_61d32606912644a85a9c02f24221fc01.bindPopup(popup_4528b1e5ee967227dae4ef3a62f87106)
+        ;
+
+        
+    
+    
+            marker_61d32606912644a85a9c02f24221fc01.bindTooltip(
+                `<div>
+                     1 entry here
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_61d32606912644a85a9c02f24221fc01.setIcon(icon_26772c87a48672dbe63d6ad5482d4a02);
+            
+    
+            var marker_719a77a5dd4b571aa3b58d27517cbd5c = L.marker(
+                [42.2803, -83.7382],
+                {
+}
+            ).addTo(map_e72be96dd3731a2f090865d5f3084d56);
+        
+    
+            var icon_0529435cec96e24d87342b242008ea59 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_46f5a443da410dac9cc36802a7e582ed = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_7bc2b6d3f5b155ca9387c0b37553ef25 = $(`<div id="html_7bc2b6d3f5b155ca9387c0b37553ef25" style="width: 100.0%; height: 100.0%;">     <div style="padding: 5px; font-family: 'Public Sans', 'Arial', sans-serif;">         <div style="font-size: 16px; font-weight: bold; margin-bottom: 3px;">📍 West Quadrangle</div>         <div><strong>Total Entries:</strong> 1</div>     </div>          <div style="max-height: 300px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; font-family: 'Public Sans', 'Arial', sans-serif;">         <table border="1" class="dataframe popup-table">   <thead>     <tr style="text-align: right;">       <th>Timestamp</th>       <th>Are you a...</th>       <th>How old are you?</th>       <th>Where did you scan the QR code?</th>       <th>How familiar are you with blockchain-based sustainability initiatives?</th>       <th>Have you participated in other sustainability initiatives on campus before?</th>     </tr>   </thead>   <tbody>     <tr>       <td>3/2/2025 20:02:40</td>       <td>Student</td>       <td>Below 18</td>       <td>West Quadrangle</td>       <td>Never heard of it</td>       <td>No</td>     </tr>   </tbody> </table>     </div>     </div>`)[0];
+                popup_46f5a443da410dac9cc36802a7e582ed.setContent(html_7bc2b6d3f5b155ca9387c0b37553ef25);
+            
+        
+
+        marker_719a77a5dd4b571aa3b58d27517cbd5c.bindPopup(popup_46f5a443da410dac9cc36802a7e582ed)
+        ;
+
+        
+    
+    
+            marker_719a77a5dd4b571aa3b58d27517cbd5c.bindTooltip(
+                `<div>
+                     1 entry here
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_719a77a5dd4b571aa3b58d27517cbd5c.setIcon(icon_0529435cec96e24d87342b242008ea59);
+            
+    
+            var tile_layer_b17a0c456c9f7649f369e040a67a092b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_301558804e92a32259baf044c4685e71 = new L.Control.MiniMap(
+                tile_layer_b17a0c456c9f7649f369e040a67a092b,
+                {
+  "position": "bottomright",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": true,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_e72be96dd3731a2f090865d5f3084d56.addControl(mini_map_301558804e92a32259baf044c4685e71);
+        
+</script>
+</html>
