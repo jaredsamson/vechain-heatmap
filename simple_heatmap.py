@@ -113,10 +113,8 @@ m.get_root().add_child(AddChild(legend_html))
 # Popups
 popup_df = df.drop(columns=["latitude", "longitude"])
 
-for location, group in popup_df.groupby("Where did you scan the QR code?"):
-    coords = locations.get(location)
-    if not coords:
-        continue
+for location, coords in locations.items():
+    group = popup_df[popup_df["Where did you scan the QR code?"] == location]
 
     summary_html = f"""
     <div style="padding: 5px; font-family: 'Public Sans', 'Arial', sans-serif;">
@@ -125,28 +123,30 @@ for location, group in popup_df.groupby("Where did you scan the QR code?"):
     </div>
     """
 
-    html_table = group.to_html(index=False, classes='popup-table', escape=False)
-    table_html = f"""
-    <div style="max-height: 300px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; font-family: 'Public Sans', 'Arial', sans-serif;">
-        {html_table}
-    </div>
-    """
-
-    full_popup_html = summary_html + table_html
+    if len(group) > 0:
+        html_table = group.to_html(index=False, classes='popup-table', escape=False)
+        table_html = f"""
+        <div style="max-height: 300px; overflow-y: auto; padding: 5px; border-top: 1px solid #ccc; font-family: 'Public Sans', 'Arial', sans-serif;">
+            {html_table}
+        </div>
+        """
+        full_popup_html = summary_html + table_html
+    else:
+        full_popup_html = summary_html + "<div style='padding: 5px;'>No responses yet.</div>"
 
     folium.Marker(
         location=coords,
         popup=folium.Popup(full_popup_html, max_width=450),
-        tooltip=f"{len(group)} entr{'y' if len(group)==1 else 'ies'} here",
-        icon=folium.Icon(color='blue', icon='info-sign')
+        tooltip=f"{len(group)} entr{'y' if len(group) == 1 else 'ies'} here",
+        icon=folium.Icon(color='gray' if len(group) == 0 else 'blue', icon='info-sign')
     ).add_to(m)
+
 
 # MiniMap
 MiniMap(toggle_display=True).add_to(m)
 
 # Save
-os.makedirs("output", exist_ok=True)
-map_final_path = "output/heatmap_umich_final.html"
+map_final_path = "index.html"
 m.save(map_final_path)
 
 map_final_path
