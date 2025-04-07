@@ -91,48 +91,50 @@ title_html = """
     left: 50%;
     transform: translateX(-50%);
     background: linear-gradient(to right, #ffffff, #f7f9fc);
-    padding: 20px 30px;
-    border-radius: 16px;
+    padding: 28px 35px;
+    border-radius: 18px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     font-family: 'Public Sans', sans-serif;
     z-index: 9999;
     text-align: center;
-    max-width: 960px;
+    max-width: 1100px;
     width: 95%;
     border: 1px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: space-between;
 ">
-    <!-- Left: Stylized M in Maize -->
-    <div style="font-family: 'Montserrat', sans-serif; font-size: 50px; font-weight: 800; color: #FFCB05; margin-right: 20px;">
+
+    <!-- Left: Stylized M -->
+    <div style="font-family: 'Montserrat', sans-serif; font-size: 60px; font-weight: 800; color: #FFCB05; margin-right: 30px;">
         M
     </div>
 
     <!-- Center: Text Block -->
     <div style="flex: 1; text-align: center;">
-        <h1 style="margin: 0; font-size: 26px; color: #00274C; font-weight: 700;">
+        <h1 style="margin: 0; font-size: 30px; color: #00274C; font-weight: 700;">
             VeBetter Engagement @ University of Michigan
         </h1>
-        <p style="margin: 5px 0 0; font-size: 15.5px; color: #444;">
+        <p style="margin: 8px 0 0; font-size: 17px; color: #444;">
             Visualizing sustainable action with <strong>VeChain</strong> & <strong>BCG</strong> — powered by <strong>Folium</strong>
         </p>
-        <p style="margin: 4px 0 0; font-size: 15px; color: #666;">
+        <p style="margin: 6px 0 0; font-size: 16px; color: #555;">
             Developed by <strong>Alex Yesilyurt</strong> & <strong>Jared Samson</strong>
         </p>
     </div>
 
-    <!-- Right: Working Logos -->
-    <div style="display: flex; align-items: center; gap: 14px; margin-left: 20px;">
+    <!-- Right: Logos -->
+    <div style="display: flex; align-items: center; gap: 16px; margin-left: 30px;">
         <a href="https://www.vechain.org/" target="_blank" title="VeChain">
-            <img src="https://cdn0.iconfinder.com/data/icons/blockchain-classic/256/VeChain-1024.png" alt="VeChain Logo" style="height: 32px;" />
+            <img src="https://cdn0.iconfinder.com/data/icons/blockchain-classic/256/VeChain-1024.png" alt="VeChain Logo" style="height: 40px;" />
         </a>
         <a href="https://www.bcg.com/" target="_blank" title="Boston Consulting Group">
-            <img src="https://logodix.com/logo/1185315.png" alt="BCG Logo" style="height: 32px;" />
+            <img src="https://logodix.com/logo/1185315.png" alt="BCG Logo" style="height: 40px;" />
         </a>
     </div>
 </div>
 """
+
 
 
 
