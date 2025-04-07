@@ -45,9 +45,21 @@ m = folium.Map(location=[adjusted_lat, lon], zoom_start=16)
 
 # Heatmap with increased radius (spread)
 heat_data = df[["latitude", "longitude"]].dropna().values.tolist()
-HeatMap(heat_data, 
-        radius=30
-        ).add_to(m)  # 6x default (default is 10)
+HeatMap(
+    
+    heat_data,
+    radius=45,         # Increase spread outward
+    blur=40,           # Softens the heat edges
+    min_opacity=0.4,   # Keeps faint data visible
+    max_zoom=17,
+    gradient={
+    "0.2": 'blue',
+    "0.4": 'lime',
+    "0.6": 'yellow',
+    "0.8": 'orange',
+    "1.0": 'red'
+}                # So it still works when zoomed in
+).add_to(m)
 
 # Title with UMich-style font and wider box
 title_html = """
